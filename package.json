@@ -1,0 +1,24 @@
+{
+  "name": "findafriend",
+  "version": "1.0.0",
+  "description": "App that helps users find a friend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cslewislives/FindAFriend.git"
+  },
+  "author": "Josh C.S. Lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cslewislives/FindAFriend/issues"
+  },
+  "homepage": "https://github.com/cslewislives/FindAFriend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
