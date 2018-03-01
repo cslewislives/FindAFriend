@@ -11,6 +11,16 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <style type="text/css">
+        #modal-content {
+            width: 300px;
+        }
+
+        #match-img {
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
 
 </head>
 
@@ -25,7 +35,8 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="">
+                    <img id="match-img">
+                    <h3 class="text-center" id="match-blurb"></h3>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -173,12 +184,12 @@
                     if ($(this).val() === '') {
                         completed = false;
                     }
-                    return completed;
                 });
+                return completed;
             }
 
             if (validation()) {
-                let answers = {
+                var answers = {
                     name: $("#name").val().trim(),
                     photo: $("#photo").val().trim(),
                     scores: [
@@ -200,6 +211,7 @@
 
                 $.post(currentURL + "/api/friends", answers, (data) => {
                     $('#match-name').text(data.name);
+                    $('#match-blurb').text(data.blurb);
                     $('#match-img').attr('src', data.photo);
 
                     $('#results-modal').modal('toggle');
