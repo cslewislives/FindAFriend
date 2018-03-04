@@ -8,7 +8,7 @@ router.route('/friends')
         let user = req.body,
             totals = [],
             bestFriend;
-        
+        // console.log(user);
         for (let i in friends) {
             let diffArr = [],
                 currentTest = friends[i].scores;
@@ -24,8 +24,8 @@ router.route('/friends')
             totals.push(totalDiff);
         }
         // console.log(totals);
-        let min = Math.min(...totals);
-        let index = totals.indexOf(min);
+        let min = Math.min(...totals),
+            index = totals.indexOf(min);
         bestFriend = friends[index];
         console.log(bestFriend);
 
@@ -33,4 +33,5 @@ router.route('/friends')
 
         res.json(bestFriend);
     });
+
 module.exports = router;
